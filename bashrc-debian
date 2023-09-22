@@ -172,7 +172,14 @@ alias 777='chmod -R 777'
 alias cls='clear'
 alias apt='sudo apt'
 alias install='sudo apt install'
+#Update and autoremove
 alias update='sudo apt update && sudo apt upgrade -y' #update and upgrade
+alias autorem='sudo apt autoremove'
+#Shutdown and restart
+alias sr='sudo shutdown -r now' #reboot
+alias sd='sudo shutsown now' #shutdown
+
+#listing files
 alias la='ls -Alh' # show hidden files
 alias ls='ls -aFh --color=always' ## add colors and file type extensions
 
@@ -180,7 +187,7 @@ alias ls='ls -aFh --color=always' ## add colors and file type extensions
 alias home='cd ~'
 alias docs='cd ~/Documents'
 alias dlds='cd ~/Downloads'
-alias gitdir='cd ~/Documents/GitHub'
+alias gitdir='cd ~/GitHub'
 alias root='cd /'
 alias html='cd /var/www/html/' #change directory to html
 
