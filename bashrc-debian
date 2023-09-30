@@ -179,6 +179,10 @@ alias autorem='sudo apt autoremove'
 alias sr='sudo shutdown -r now' #reboot
 alias sd='sudo shutsown now' #shutdown
 
+
+#check ip 
+alias myip='curl ifconfig.co/ip'
+
 #listing files
 alias la='ls -Alh' # show hidden files
 alias ls='ls -aFh --color=always' ## add colors and file type extensions
