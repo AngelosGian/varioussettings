@@ -1,5 +1,11 @@
 #!/bin/bash
 
+RC='\e[0m'
+RED='\e[31m'
+YELLOW='\e[33m'
+GREEN='\e[32m'
+
+
 # Check if Script is Run as Root
 if [[ $EUID -ne 0 ]]; then
   echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
@@ -21,11 +27,14 @@ cd $builddir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/Pictures
+mkdir -p /home/$username/Downloads
+mkdir -p /home/$username/GitHub
+
 
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install git shotwell kitty picom lxpolkit x11-xserver-utils unzip wget pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
+nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
 # Installing Other less important Programs
 nala install neofetch psmisc mangohud vim lxappearance papirus-icon-theme fonts-noto-color-emoji -y
 
@@ -51,19 +60,43 @@ fc-cache -vf
 rm ./FiraCode.zip ./Meslo.zip
 
 # Install brave-browser
-nala install apt-transport-https curl -y
-curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
-nala update
-nala install brave-browser -y
-
+# nala install apt-transport-https curl -y
+# curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+# echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+# nala update
+# nala install brave-browser -y
+# Install thorium-browser
+cd ~/Downloads/
+wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.deb
+nala install ./thorium-browser_117.0.5938.157_amd64.deb -y
 
 # Beautiful bash
-cd ~/Downloads
-git clone https://github.com/ChrisTitusTech/mybash
-cd mybash
-bash setup.sh
-cd $builddir
+# cd ~/Downloads
+# git clone https://github.com/ChrisTitusTech/mybash
+# cd mybash
+# bash setup.sh
+# cd $builddir
+command_exists () {
+    command -v $1 >/dev/null 2>&1;
+}
+
+installStarship(){
+    if command_exists starship; then
+        echo "Starship already installed"
+        return
+    fi
+
+    if ! curl -sS https://starship.rs/install.sh|sh;then
+        echo -e "${RED}Something went wrong during starship install!${RC}"
+        exit 1
+    fi
+}
+
+cd ~/
+mv .bashrc .bashrc.bak; cp -r ~/variousettings/bashrc-debian ~/.bashrc; cp -r ~/varioussettings/starship-custom-debian.toml ~/.config/starship.toml
+
+
+
 
 # Use nala
 #bash scripts/usenala
