@@ -21,14 +21,13 @@ cd $builddir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/Pictures
-mkdir -p /home/$username/Pictures/backgrounds
 
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
 nala install git shotwell kitty picom lxpolkit x11-xserver-utils unzip wget pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
 # Installing Other less important Programs
-nala install neofetch flameshot psmisc mangohud vim lxappearance papirus-icon-theme fonts-noto-color-emoji -y
+nala install neofetch psmisc mangohud vim lxappearance papirus-icon-theme fonts-noto-color-emoji -y
 
 # Download Nordic Theme
 cd /usr/share/themes/
