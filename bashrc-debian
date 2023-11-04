@@ -176,7 +176,7 @@ alias install='sudo apt install'
 alias update='sudo apt update && sudo apt upgrade -y' #update and upgrade
 alias autorem='sudo apt autoremove'
 #Shutdown and restart
-alias sr='sudo shutdown -r now' #reboot
+alias reboot='sudo shutdown -r now' #reboot
 alias sd='sudo shutsown now' #shutdown
 
 

@@ -12,10 +12,10 @@ format = """
 $username\
 [](fg:#592661 bg:#615AA8 )\
 $directory\
-[](fg:#615AA8 bg:#000000 )\
+[](fg:#615AA8 bg:#592661 )\
 $git_branch\
 $git_status\
-[](fg:#000000 bg:#A3DA58)\
+[](fg:#592661 bg:#F7BA2B)\
 $c\
 $elixir\
 $elm\
@@ -24,11 +24,12 @@ $haskell\
 $java\
 $julia\
 $nodejs\
+[](fg:#F7BA2B bg:#F7BA2B)\
 $nim\
 $rust\
-[](fg:#A3DA58 bg:#F7BA2B)\
+[](fg:#F7BA2B bg:#A3DA58)\
 $docker_context\
-[](fg:#F7BA2B bg:#615AA8)\
+[](fg:#A3DA58 bg:#615AA8)\
 $time\
 [ ](fg:#615AA8)\
 """
@@ -87,11 +88,11 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#4C566A"
+style = "bg:#592661"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#4C566A"
+style = "bg:#592661"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -116,7 +117,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
+style = "fg:#592661 bg:#F7BA2B"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
