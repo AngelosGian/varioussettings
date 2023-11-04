@@ -26,15 +26,15 @@ apt install nala -y
 cd $builddir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
-mkdir -p /home/$username/Pictures
-mkdir -p /home/$username/Downloads
+# mkdir -p /home/$username/Pictures
+# mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/GitHub
 
 
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
+nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev kde-plasma-desktop -y
 # Installing Other less important Programs
 nala install neofetch psmisc mangohud vim lxappearance papirus-icon-theme fonts-noto-color-emoji -y
 
@@ -66,9 +66,9 @@ rm ./FiraCode.zip ./Meslo.zip
 # nala update
 # nala install brave-browser -y
 # Install thorium-browser
-cd ~/Downloads/
-wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.deb
-nala install ./thorium-browser_117.0.5938.157_amd64.deb -y
+# cd ~/Downloads/
+# wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.deb
+# nala install ./thorium-browser_117.0.5938.157_amd64.deb -y
 
 # Beautiful bash
 # cd ~/Downloads
@@ -93,7 +93,7 @@ installStarship(){
 }
 
 cd ~/
-mv .bashrc .bashrc.bak; cp -r ~/variousettings/bashrc-debian ~/.bashrc; cp -r ~/varioussettings/starship-custom-debian.toml ~/.config/starship.toml
+sudo mv .bashrc .bashrc.bak; sudo cp -r ~/variousettings/bashrc-debian ~/.bashrc; sudo cp -r ~/varioussettings/starship-custom-debian.toml ~/.config/starship.toml
 
 
 
