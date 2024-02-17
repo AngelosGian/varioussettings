@@ -18,8 +18,8 @@ builddir=$(pwd)
 apt update
 apt upgrade -y
 
-apt install nala git -y
-nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
+apt install nala git neofetch -y
+nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pipewire pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
 nala install light sway swaybg swayidle swayimg swaylock waybar wofi fonts-font-awesome -y
 nala install dolphin -y
 
