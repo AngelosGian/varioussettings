@@ -27,18 +27,21 @@ cd $builddir
 
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/.themes
+mkdir -p /home/$username/.config
 mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/GitHub
 cd GitHub
 git clone https://github.com/EliverLara/Sweet.git
 
+cd .. 
 #rename the default bashrc file
 mv /home/$username/.bashrc /home/$username/bashrc.bak
 
 #copying the configuration file for sway and the bashrc
-cp -r /home/$username/variousettings/debian-sway/.config /home/$username/
-cp -r /home/$username/variousettings/debian-sway/.bashrc /home/$username/
-cp -r Sweet/ /home/$username/.themes/
+cp -r /home/$username/variousettings/debian-sway/.config/* /home/$username/
+cp  /home/$username/variousettings/debian-sway/bashrc /home/$username/
+mv  /home/$username/bashrc /home/$username/.bashrc
+cp -r /home/$username/GitHub/Sweet/ /home/$username/.themes/
 
 
 echo "done"
