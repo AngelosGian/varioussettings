@@ -19,7 +19,7 @@ apt update
 apt upgrade -y
 
 apt install nala git -y
-nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev
+nala install shotwell kitty picom lxpolkit x11-xserver-utils unzip wget curl pulseaudio pavucontrol build-essential libx11-dev libxft-dev libxinerama-dev -y
 nala install light sway swaybg swayidle swayimg swaylock waybar wofi fonts-font-awesome -y
 nala install dolphin -y
 
@@ -27,17 +27,17 @@ cd $builddir
 
 mkdir -p /home/$username/.fonts
 mkdir -p /home/$username/.themes
+mkdir -p /home/$username/Downloads
 mkdir -p /home/$username/GitHub
 cd GitHub
-git clone https://github.com/AngelosGian/varioussettings.git
 git clone https://github.com/EliverLara/Sweet.git
 
 #rename the default bashrc file
 mv /home/$username/.bashrc /home/$username/bashrc.bak
 
 #copying the configuration file for sway and the bashrc
-cp -r variousettings/debian-sway/.config /home/$username/
-cp -r variousettings/debian-sway/.bashrc /home/$username/
+cp -r /home/$username/variousettings/debian-sway/.config /home/$username/
+cp -r /home/$username/variousettings/debian-sway/.bashrc /home/$username/
 cp -r Sweet/ /home/$username/.themes/
 
 
