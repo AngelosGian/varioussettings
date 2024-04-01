@@ -93,6 +93,9 @@ rm -rf ./Meslo.zip ./Hack.zip ./FiraCode.zip
 cd /home/$username/.themes
 git clone https://github.com/EliverLara/Sweet
 
+# Enable graphical login and change target from CLI to GUI
+systemctl enable lightdm
+systemctl set-default graphical.target
 
 echo "Installation complete, enjoy your new dwm setup!"
 
