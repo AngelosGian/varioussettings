@@ -24,7 +24,7 @@ apt upgrade -y
 apt install nala -y 
 
 #using nala
-nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty
+nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty -y
 
 
 cd $builddir
@@ -39,11 +39,11 @@ for dir in "${directories[@]}"; do
     fi
 done
 
-toClone=("https://github.com/suckless/dwm.git" "https://github.com/suckless/st.git" "https://github.com/suckless/dmenu.git")
+toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://git.suckless.org/dmenu")
 
 for clone in "${toClone[@]}"; do
     # Extract the name of the repo from the URL to use as the folder name
-    repoName=$(basename "$clone" .git)
+    repoName=$(basename "$clone")
     targetDir="/home/$username/.suckless/$repoName"
     
     if [ -d "$targetDir" ]; then
