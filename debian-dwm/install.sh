@@ -54,3 +54,6 @@ for clone in "${toClone[@]}"; do
     fi
 done
 
+cd /home/angelos/
+
+chown -R $username:$username .
