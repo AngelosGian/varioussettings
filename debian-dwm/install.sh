@@ -24,7 +24,7 @@ apt upgrade -y
 apt install nala -y 
 
 #using nala
-nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome lightdm -y
+nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome lightdm thunar -y
 
 # Run neofetch immediately after its installation
 neofetch
