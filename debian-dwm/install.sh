@@ -76,7 +76,6 @@ cd $builddir
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
 unzip -o -d FiraCode.zip home/$username/.fonts
 
-
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
 unzip -o -d Hack.zip home/$username/.fonts
 
