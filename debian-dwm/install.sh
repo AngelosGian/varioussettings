@@ -23,7 +23,7 @@ apt upgrade -y
 #install some basic packages
 apt install nala -y 
 
-#Configure the best repos
+#Configure the best mirrors
 nala fetch
 #using nala
 nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome lightdm thunar -y
