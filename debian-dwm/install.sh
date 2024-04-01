@@ -74,17 +74,17 @@ cd /home/$username/
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
-unzip -o FiraCode.zip
+unzip -o -d FiraCode.zip ./FiraCode/
 rm FiraCode.zip
 mv FiraCode home/$username/.fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
-unzip -o Hack.zip
+unzip -o -d Hack.zip ./Hack/
 rm Hack.zip
 mv Hack home/$username/.fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
-unzip -o Meslo.zip
+unzip -o -d Meslo.zip ./Meslo/
 rm Meslo.zip
 mv Meslo home/$username/.fonts
 
