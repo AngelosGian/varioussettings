@@ -33,7 +33,7 @@ neofetch
 
 cd $builddir
 
-directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" )
+directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" "Pictures/backgrounds" )
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
         echo "Directory "$dir" exists"
@@ -45,8 +45,23 @@ done
 
 cd $builddir
 
-mv home/$username/.bashrc home/$username/bashrc.bak
-cp home/$username/variousettings/debian-dwm/.bashrc home/$username/
+# Define the home directory for clarity and reuse
+user_home="/home/$username"
+
+# Check if the original .bashrc exists before moving
+if [ -f "$user_home/.bashrc" ]; then
+    mv "$user_home/.bashrc" "$user_home/bashrc.bak"
+else
+    echo "No original .bashrc found, proceeding without backup."
+fi
+
+# Ensure the source .bashrc exists
+if [ -f "$user_home/variousettings/debian-dwm/.bashrc" ]; then
+    cp "$user_home/variousettings/debian-dwm/.bashrc" "$user_home/"
+else
+    echo "Source .bashrc not found, cannot copy."
+fi
+
 source home/$username/.bashrc
 
 cp home/$username/variousettings/debian-dwm/evangelion-unit-01-4k-pc-1920x1080.jpg home/$username/Pictures/backgrounds
