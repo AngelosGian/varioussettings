@@ -31,23 +31,22 @@ neofetch
 
 cd $builddir
 
-# directories=("home/$username/.suckless", "home/$username/Downloads", "home/$username/.config", "home/$username/.fonts", "home/$username/Pictures", "home/$username/.themes" )
-directories=("$ΗΟΜΕ/.suckless", "$ΗΟΜΕ/Downloads", "$ΗΟΜΕ/.config", "$ΗΟΜΕ/.fonts", "$ΗΟΜΕ/Pictures", "$ΗΟΜΕ/Pictures/backgrounds", "$ΗΟΜΕ/.themes" )
+directories=("home/$username/.suckless", "home/$username/Downloads", "home/$username/.config", "home/$username/.fonts", "home/$username/Pictures", "home/$username/.themes" )
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
-        echo "${YELLOW}Directory "$dir" exists"
+        echo "Directory "$dir" exists"
     else
-        echo "${GREEN}Directory "$dir" does not exist, creating it"
+        echo "Directory "$dir" does not exist, creating it"
         mkdir -p "$dir"
     fi
 done
 
-mv "$HOME/.bashrc" "$HOME/bashrc.bak"
-cp "$HOME/variousettings/.bashrc" "$HOME"
-source "$HOME/.bashrc"
+mv home/$username/.bashrc home/$username/bashrc.bak
+cp home/$username/variousettings/.bashrc home/$username/
+source $HOME/.bashrc
 
-cp "$HOME/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg" "$HOME/Pictures/backgrounds"
-cp "$HOME/variousettings/starship.toml" "$HOME/.config"
+cp home/$username/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg home/$username/Pictures/backgrounds
+cp home/$username/variousettings/starship.toml home/$username/.config
 #change the ownership of the home directory
 chown -R $username:$username .
 
@@ -58,12 +57,12 @@ toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://g
 for clone in "${toClone[@]}"; do
     # Extract the name of the repo from the URL to use as the folder name
     repoName=$(basename "$clone")
-    targetDir="$ΗΟΜΕ/.suckless/$repoName"
+    targetDir="home/$username/.suckless/$repoName"
     
     if [ -d "$targetDir" ]; then
-        echo "${YELLOW}Repository $repoName already cloned."
+        echo "Repository $repoName already cloned."
     else
-        echo "${GREEN}Cloning $repoName into $targetDir"
+        echo "Cloning $repoName into $targetDir"
         git clone "$clone" "$targetDir"
         cd $targetDir
         make; make clean install
@@ -71,21 +70,21 @@ for clone in "${toClone[@]}"; do
     fi
 done
 
-cd "$HOME"
+cd /home/$username/
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
-unzip FiraCode.zip
+unzip -o FiraCode.zip
 rm FiraCode.zip
-mv FiraCode "$HOME/.fonts"
+mv FiraCode home/$username/.fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
-unzip Hack.zip
+unzip -o Hack.zip
 rm Hack.zip
-mv Hack "$HOME/.fonts"
+mv Hack home/$username/.fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
-unzip Meslo.zip
+unzip -o Meslo.zip
 rm Meslo.zip
-mv Meslo "$HOME/.fonts"
+mv Meslo home/$username/.fonts
 
