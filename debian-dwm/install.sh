@@ -39,14 +39,18 @@ for dir in "${directories[@]}"; do
     fi
 done
 
-toClone=("https://github.com/suckless/dwm.git" "https://github.com/suckless/st.git" "https://github.com/suckless/dmenu.git" )
+toClone=("https://github.com/suckless/dwm.git" "https://github.com/suckless/st.git" "https://github.com/suckless/dmenu.git")
 
 for clone in "${toClone[@]}"; do
-    if [ -d "$clone"]; then
-        echo "Directory "$clone" exists"
+    # Extract the name of the repo from the URL to use as the folder name
+    repoName=$(basename "$clone" .git)
+    targetDir="/home/$username/.suckless/$repoName"
+    
+    if [ -d "$targetDir" ]; then
+        echo "Repository $repoName already cloned."
     else
-        echo "Directory "$clone" does not exist, creating it"
-        mkdir -p "$clone"
+        echo "Cloning $repoName into $targetDir"
+        git clone "$clone" "$targetDir"
     fi
 done
 
