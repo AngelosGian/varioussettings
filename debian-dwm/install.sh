@@ -31,7 +31,7 @@ neofetch
 
 cd $builddir
 
-directories=("home/$username/.suckless" "home/$username/Downloads" "home/$username/.config" "home/$username/.fonts" "home/$username/Pictures" "home/$username/.themes" )
+directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" )
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
         echo "Directory "$dir" exists"
@@ -50,7 +50,7 @@ cp home/$username/variousettings/starship.toml home/$username/.config
 #change the ownership of the home directory
 chown -R $username:$username .
 
-
+cd $builddir
 
 toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://git.suckless.org/dmenu")
 
