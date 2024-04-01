@@ -42,12 +42,12 @@ for dir in "${directories[@]}"; do
     fi
 done
 
-mv $HOME/.bashrc $HOME/bashrc.bak
-cp $HOME/variousettings/.bashrc $HOME
-source $HOME/.bashrc
+mv "$HOME/.bashrc" "$HOME/bashrc.bak"
+cp "$HOME/variousettings/.bashrc" "$HOME"
+source "$HOME/.bashrc"
 
-cp $HOME/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg $HOME/Pictures/backgrounds
-cp $HOME/varioussettings/starship.toml $HOME/.config
+cp "$HOME/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg" "$HOME/Pictures/backgrounds"
+cp "$HOME/variousettings/starship.toml" "$HOME/.config"
 #change the ownership of the home directory
 chown -R $username:$username .
 
@@ -71,20 +71,21 @@ for clone in "${toClone[@]}"; do
     fi
 done
 
-cd $HOME
+cd "$HOME"
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
 unzip FiraCode.zip
 rm FiraCode.zip
-mv FiraCode $HOME/.fonts
+mv FiraCode "$HOME/.fonts"
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
 unzip Hack.zip
 rm Hack.zip
-mv Hack $HOME/.fonts
+mv Hack "$HOME/.fonts"
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
 unzip Meslo.zip
 rm Meslo.zip
-mv Meslo $HOME/.fonts
+mv Meslo "$HOME/.fonts"
+
