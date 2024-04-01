@@ -24,7 +24,7 @@ apt upgrade -y
 apt install nala -y 
 
 #using nala
-nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome -y
+nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome lightdm -y
 
 # Run neofetch immediately after its installation
 neofetch
@@ -74,17 +74,27 @@ cd $builddir
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
-unzip -o -d FiraCode.zip ./FiraCode/
-rm FiraCode.zip
-mv FiraCode home/$username/.fonts
+unzip -o -d FiraCode.zip home/$username/.fonts
+
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
-unzip -o -d Hack.zip ./Hack/
-rm Hack.zip
-mv Hack home/$username/.fonts
+unzip -o -d Hack.zip home/$username/.fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
-unzip -o -d Meslo.zip ./Meslo/
-rm Meslo.zip
-mv Meslo home/$username/.fonts
+unzip -o -d Meslo.zip home/$username/.fonts
+
+chown -R $username:$username home/$username/.fonts/*
+
+# Reloading Font
+fc-cache -vf
+# Removing zip Files
+rm -rf ./Meslo.zip ./Hack.zip ./FiraCode.zip
+
+#installing Sweet theme package
+cd /home/$username/.themes
+git clone https://github.com/EliverLara/Sweet
+
+
+echo "Installation complete, enjoy your new dwm setup!"
+
 
