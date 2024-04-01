@@ -41,12 +41,14 @@ for dir in "${directories[@]}"; do
     fi
 done
 
+cd $builddir
+
 mv home/$username/.bashrc home/$username/bashrc.bak
-cp home/$username/variousettings/.bashrc home/$username/
+cp home/$username/variousettings/debian-dwm/.bashrc home/$username/
 source home/$username/.bashrc
 
-cp home/$username/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg home/$username/Pictures/backgrounds
-cp home/$username/variousettings/starship.toml home/$username/.config
+cp home/$username/variousettings/debian-dwm/evangelion-unit-01-4k-pc-1920x1080.jpg home/$username/Pictures/backgrounds
+cp home/$username/variousettings/debian-dwm/starship.toml home/$username/.config
 #change the ownership of the home directory
 chown -R $username:$username .
 
@@ -57,7 +59,7 @@ toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://g
 for clone in "${toClone[@]}"; do
     # Extract the name of the repo from the URL to use as the folder name
     repoName=$(basename "$clone")
-    targetDir="home/$username/.suckless/$repoName"
+    targetDir=".suckless/$repoName"
     
     if [ -d "$targetDir" ]; then
         echo "Repository $repoName already cloned."
@@ -74,15 +76,15 @@ cd $builddir
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
-unzip -o -d FiraCode.zip home/$username/.fonts
+unzip -o -d FiraCode.zip .fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
-unzip -o -d Hack.zip home/$username/.fonts
+unzip -o -d Hack.zip .fonts
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
-unzip -o -d Meslo.zip home/$username/.fonts
+unzip -o -d Meslo.zip .fonts
 
-chown -R $username:$username home/$username/.fonts/*
+chown -R $username:$username .fonts/*
 
 # Reloading Font
 fc-cache -vf
@@ -98,5 +100,3 @@ systemctl enable lightdm
 systemctl set-default graphical.target
 
 echo "Installation complete, enjoy your new dwm setup!"
-
-
