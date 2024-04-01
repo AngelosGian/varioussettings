@@ -31,7 +31,7 @@ neofetch
 
 cd $builddir
 
-directories=("home/$username/.suckless", "home/$username/Downloads", "home/$username/.config", "home/$username/.fonts", "home/$username/Pictures", "home/$username/.themes" )
+directories=("home/$username/.suckless" "home/$username/Downloads" "home/$username/.config" "home/$username/.fonts" "home/$username/Pictures" "home/$username/.themes" )
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
         echo "Directory "$dir" exists"
@@ -43,7 +43,7 @@ done
 
 mv home/$username/.bashrc home/$username/bashrc.bak
 cp home/$username/variousettings/.bashrc home/$username/
-source $HOME/.bashrc
+source home/$username/.bashrc
 
 cp home/$username/variousettings/evangelion-unit-01-4k-pc-1920x1080.jpg home/$username/Pictures/backgrounds
 cp home/$username/variousettings/starship.toml home/$username/.config
@@ -70,7 +70,7 @@ for clone in "${toClone[@]}"; do
     fi
 done
 
-cd /home/$username/
+cd $builddir
 
 #installing fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
