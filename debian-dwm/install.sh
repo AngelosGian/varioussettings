@@ -26,13 +26,13 @@ apt install nala -y
 #Configure the best mirrors
 nala fetch
 #using nala
-nala install neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip fonts-font-awesome lightdm thunar -y
+nala install git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome -y
 
 # Run neofetch immediately after its installation
 neofetch
 
 cd $builddir
-
+#creating the directories in home/$username
 directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" "Pictures/backgrounds" )
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
@@ -54,7 +54,7 @@ if [ -f "$user_home/.bashrc" ]; then
 else
     echo "No original .bashrc found, proceeding without backup."
 fi
-
+cd $builddir
 # Ensure the source .bashrc exists
 if [ -f "$user_home/variousettings/debian-dwm/.bashrc" ]; then
     cp "$user_home/variousettings/debian-dwm/.bashrc" "$user_home/"
@@ -70,10 +70,11 @@ cp home/$username/variousettings/debian-dwm/starship.toml home/$username/.config
 chown -R $username:$username .
 
 cd $builddir
+#clone the repository
+# toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://git.suckless.org/dmenu")
+toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st")
 
-toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://git.suckless.org/dmenu")
-
-for clone in "${toClone[@]}"; do
+# for clone in "${toClone[@]}"; do
     # Extract the name of the repo from the URL to use as the folder name
     repoName=$(basename "$clone")
     targetDir=".suckless/$repoName"
