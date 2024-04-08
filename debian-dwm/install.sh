@@ -25,7 +25,7 @@ apt install nala -y
 #Configure the best mirrors
 nala fetch
 #using nala
-nala install xorg git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome neovim -y
+nala install xorg neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome neovim -y
 # nala install git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome -y
 
 # Run neofetch immediately after its installation
@@ -80,6 +80,8 @@ if [ -f "$user_home/variousettings/debian-dwm/evangelion-unit-01-4k-pc-1920x1080
 else
     echo "Source evangelion-unit-01-4k-pc-1920x1080.jpg not found, cannot copy."
 fi
+
+#loading the new bashrc file
 source home/$username/.bashrc
 
 
