@@ -64,22 +64,9 @@ else
     echo "Source .bashrc not found, cannot copy."
 fi
 
-if [ -f "$user_home/variousettings/debian-dwm/.xinitrc" ]; then
     cp "$user_home/variousettings/debian-dwm/.xinitrc" "$user_home/"
-else
-    echo "Source .xinitrc not found, cannot copy."
-fi
-
-if [ -f "$user_home/variousettings/debian-dwm/starship.toml" ]; then
     cp "$user_home/variousettings/debian-dwm/starship.toml" "$user_home/.config"
-else
-    echo "Source starship.toml not found, cannot copy."
-fi
-if [ -f "$user_home/variousettings/debian-dwm/evangelion-unit-01-4k-pc-1920x1080.jpg" ]; then
     cp "$user_home/variousettings/debian-dwm/evangelion-unit-01-4k-pc-1920x1080.jpg" "$user_home/Pictures/backgrounds"
-else
-    echo "Source evangelion-unit-01-4k-pc-1920x1080.jpg not found, cannot copy."
-fi
 
 #loading the new bashrc file
 source home/$username/.bashrc
