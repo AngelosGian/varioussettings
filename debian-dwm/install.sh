@@ -25,7 +25,7 @@ apt install nala -y
 #Configure the best mirrors
 nala fetch
 #using nala
-nala install xorg git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome -y
+nala install xorg git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome neovim -y
 # nala install git neofetch build-essential libx11-dev libxft-dev libxinerama-dev kitty bat feh wget curl unzip rofi fonts-font-awesome -y
 
 # Run neofetch immediately after its installation

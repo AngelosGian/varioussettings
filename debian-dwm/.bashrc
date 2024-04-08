@@ -49,8 +49,8 @@ if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
 if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Set the default editor
-export EDITOR=code
-export VISUAL=code
+export EDITOR=nano
+export VISUAL=nano
 alias pico='edit'
 alias spico='sedit'
 alias nano='edit'
