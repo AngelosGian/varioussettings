@@ -16,8 +16,7 @@ username=$(id -u -n 1000)
 builddir=$(pwd)
 
 # Update packages list and update system
-apt update
-apt upgrade -y
+apt update;apt upgrade -y
 
 
 #install some basic packages
@@ -34,7 +33,7 @@ neofetch
 
 cd $builddir
 #creating the directories in home/$username
-directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" "Pictures/backgrounds" )
+directories=(".suckless" "Downloads" ".config" ".fonts" "Pictures" ".themes" "Pictures/backgrounds" ".xinitrc")
 for dir in "${directories[@]}"; do
     if [ -d "$dir"]; then
         echo "Directory "$dir" exists"
@@ -115,7 +114,7 @@ cd /home/$username/.themes
 git clone https://github.com/EliverLara/Sweet
 
 # Enable graphical login and change target from CLI to GUI
-systemctl enable lightdm
-systemctl set-default graphical.target
+# systemctl enable lightdm
+# systemctl set-default graphical.target
 
 echo "Installation complete, enjoy your new dwm setup!"
