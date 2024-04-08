@@ -73,9 +73,9 @@ chown -R $username:$username .
 cd $builddir
 #clone the repository
 # toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st" "https://git.suckless.org/dmenu")
-toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/st")
+toClone=("https://git.suckless.org/dwm" "https://git.suckless.org/dmenu")
 
-# for clone in "${toClone[@]}"; do
+for clone in "${toClone[@]}"; do
     # Extract the name of the repo from the URL to use as the folder name
     repoName=$(basename "$clone")
     targetDir=".suckless/$repoName"
